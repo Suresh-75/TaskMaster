@@ -19,7 +19,13 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["POST", "GET", "PUT", "PATCH"],
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.get("/", (req, res) => {
   res.json({ status: "success" });
@@ -44,6 +50,10 @@ const DB = process.env.MongoDbURL.replace(
   "<db_password>",
   process.env.PASSWORD
 );
-mongoose.connect(DB).then(() => {
-  console.log("connected to database");
-});
+mongoose
+  .connect(
+    "mongodb+srv://Suresh:120@cluster.s5aefqf.mongodb.net/TaskMaster?retryWrites=true&w=majority&appName=Cluster"
+  )
+  .then(() => {
+    console.log("connected to database");
+  });
