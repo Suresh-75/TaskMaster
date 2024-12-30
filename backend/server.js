@@ -33,6 +33,7 @@ app.put("/updateTask/:taskId", updateTask);
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
+
 app.get("/*", (req, res) => {
   res.json({ status: "success" });
 });
