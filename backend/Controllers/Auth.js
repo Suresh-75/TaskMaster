@@ -16,7 +16,7 @@ exports.handleLogin = async (req, res) => {
       });
     let isSame = await bcrypt.compare(password, user.password);
     if (isSame) {
-      const token = jwt.sign({ id: user._id }, "SECRETKEY", {
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: "30 days",
       });
       res.json({
@@ -50,7 +50,7 @@ exports.handleSignUp = async (req, res) => {
     }
     const currentUser = await User.create({ name, email, password });
     // console.log(currentUser);
-    const token = jwt.sign({ id: currentUser._id }, "SECRETKEY", {
+    const token = jwt.sign({ id: currentUser._id }, process.env.JWT_SECRET, {
       expiresIn: "30 days",
     });
     // console.log(token);

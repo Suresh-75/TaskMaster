@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Theme>
         <Routes>
-          <Route path="/Dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="/Tasklist" element={<Tasklist />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
