@@ -28,7 +28,7 @@ app.use(
 );
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.json({ status: "success" });
+  res.json({ status: "start" });
 });
 app.post("/login", handleLogin);
 app.post("/signUp", handleSignUp);
@@ -41,9 +41,11 @@ app.put("/updateTask/:taskId", updateTask);
 app.listen(8080, () => {
   console.log("Listening on port 8080");
 });
-
+app.get("/test", (req, res) => {
+  res.json({ status: "end" });
+});
 app.get("/*", (req, res) => {
-  res.json({ status: "success" });
+  res.json({ status: "end" });
 });
 const port = process.env.PORT;
 const DB = process.env.MongoDbURL.replace(
