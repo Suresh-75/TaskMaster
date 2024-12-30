@@ -22,7 +22,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.json({ status: "success" });
+  res.status(200).json("Hey");
 });
 app.post("/login", handleLogin);
 app.post("/signUp", handleSignUp);
