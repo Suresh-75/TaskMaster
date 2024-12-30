@@ -15,7 +15,7 @@ function NavBar() {
       <ul className="flex w-[15%] justify-between">
         <li className="font-bold text-lg">
           <NavLink
-            to="/Dashboard"
+            to="/"
             style={({ isActive }) => ({
               color: isActive ? "purple" : "black",
             })}
