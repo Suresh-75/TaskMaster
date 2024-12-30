@@ -21,7 +21,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+app.get("/", (req, res) => {
+  res.json({ status: "success" });
+});
 app.post("/login", handleLogin);
 app.post("/signUp", handleSignUp);
 app.post("/addTask", addTaskToUser);
