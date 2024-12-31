@@ -12,12 +12,13 @@ import axios from "axios";
 function AddTask({ setTasks, tasks }) {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState(5);
-  const [startTime, setStartTime] = useState(dayjs("2022-04-17T15:30"));
-  const [endTime, setEndTime] = useState(dayjs("2022-04-17T15:30"));
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
   const [status, setStatus] = useState(false);
 
   async function handleAddTask() {
     try {
+      if (title.length == 0) return;
       const res = await axios.post(`${import.meta.env.VITE_BASE_URL}/addTask`, {
         title,
         priority,
@@ -48,6 +49,7 @@ function AddTask({ setTasks, tasks }) {
             Title
           </label>
           <input
+            required
             type="text"
             id="title"
             className="border-2 rounded p-1 px-2"

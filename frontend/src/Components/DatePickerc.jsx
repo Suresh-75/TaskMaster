@@ -7,6 +7,7 @@ function DatePickerc({ start, time, set }) {
     <div className="mr-3">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateTimeField
+          required
           margin="none"
           size="small"
           variant="standard"

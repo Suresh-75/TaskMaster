@@ -79,7 +79,7 @@ exports.getSummary = async (req, res) => {
   );
   let completed = 0;
   let time = 0;
-  const estTime = 0;
+  let estTime = 0;
   taskObj.forEach((task) => {
     if (task.status) {
       const timeA = new Date(task.endTime);
@@ -97,8 +97,8 @@ exports.getSummary = async (req, res) => {
     (Date.now() - new Date(taskObj[0].startTime).getTime()) / (1000 * 60 * 60);
   const summary = {
     totalTasks: user.tasks?.length,
-    completedPercent: (completed * 100) / user.tasks?.length,
-    Avg: time / completed,
+    completedPercent: Math.floor((completed * 100) / user.tasks?.length),
+    Avg: Math.floor(time / completed),
   };
   const summaryPending = {
     pendingTasks: user.tasks?.length - completed,
