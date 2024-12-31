@@ -4,13 +4,13 @@ import axios from "axios";
 function Status({ setTasks }) {
   async function statusSet(val) {
     const res = await axios.get(
-      `VITE_BASE_URL/getTasks/${localStorage.getItem("userID")}`
+      `${import.meta.env.VITE_BASE_URL}/getTasks/${localStorage.getItem(
+        "userID"
+      )}`
     );
     setTasks(res.data.taskObj);
     setTasks((prevTasks) => {
       return prevTasks.filter((task) => {
-        console.log(task.status);
-        console.log(val);
         return task.status === val;
       });
     });

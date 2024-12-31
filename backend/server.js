@@ -52,6 +52,7 @@ const DB = process.env.MongoDbURL.replace(
   "<db_password>",
   process.env.PASSWORD
 );
+// console.log(DB);
 mongoose
   .connect(
     "mongodb+srv://Suresh:120@cluster.s5aefqf.mongodb.net/TaskMaster?retryWrites=true&w=majority&appName=Cluster"
