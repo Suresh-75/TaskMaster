@@ -73,7 +73,7 @@ exports.isAuthenticated = (req, res, next) => {
     if (!token) {
       throw new Error("LogIn to use this route/ no token available");
     }
-    jwt.verify(token, "SECRETKEY", (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
       if (err) throw new Error("Login to use this route/ invalid token");
       next();
     });
